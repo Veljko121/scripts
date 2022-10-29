@@ -1,4 +1,6 @@
 #!/bin/bash
+# This script installs Visual Studio Code
+# according to https://code.visualstudio.com/docs/setup/linux
 
 sudo apt-get install wget gpg
 wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
