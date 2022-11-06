@@ -1,3 +1,5 @@
+import os
+
 with open('/etc/default/grub', 'r') as grub:
     grub_contents = grub.readlines()
 
@@ -8,3 +10,6 @@ for i, line in enumerate(grub_contents):
 with open('grub', 'w') as grub:
     for line in grub_contents:
         grub.write(line)
+
+os.system("sudo mv grub /etc/default")
+os.system("sudo update-grub")
