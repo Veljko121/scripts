@@ -4,13 +4,6 @@ import random
 import os
 
 
-def get_username():
-    os.system("whoami > username.txt")
-    with open("username.txt", 'r') as username_file:
-        username = username_file.read().strip() #to strip \n
-    os.remove("username.txt")
-    return username
-
 def get_new_palette(palette_filename: str):
     with open(palette_filename) as palette:
         palette_new = [color.upper() for color in palette.read().split()]
@@ -21,7 +14,7 @@ def get_random_palette(number_of_colors : int):
 
 def swap_colors(palette_old, palette_new, contents):
     palette_random = get_random_palette(number_of_colors=6)
-    # swapping first wiht random colors to tackle avoid same colors, because they can mess up the file
+    # swapping with random colors first to avoid same colors, because they can mess up the file
     for old_color, random_color in zip(palette_old, palette_random):
         contents = contents.replace(old_color, random_color)
     for random_color, new_color in zip(palette_random, palette_new):
@@ -30,12 +23,11 @@ def swap_colors(palette_old, palette_new, contents):
 
 def main():
     if len(sys.argv) != 2:
-        raise("Invalid number of arguments.")
+        raise("Invalid number of arguments. Usage: python3 pallete.py <color>.txt")
 
     palette_filename = sys.argv[1]
 
-    username = get_username()
-    starship_toml_path = f"/home/{username}/.config/starship.toml"
+    starship_toml_path = f"/home/{os.getlogin()}/.config/starship.toml"
 
     # read from starship.toml
     with open(starship_toml_path, 'r') as toml:
@@ -50,6 +42,7 @@ def main():
 
     contents = swap_colors(palette_old, palette_new, contents)
 
+    # write new contents to starship.toml
     with open(starship_toml_path, 'w') as toml:
         toml.write(contents)
 
