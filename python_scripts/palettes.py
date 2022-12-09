@@ -2,6 +2,7 @@ import sys
 import re
 import random
 import os
+from functions import get_username
 
 
 def get_new_palette(palette_filename: str):
