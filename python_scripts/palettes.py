@@ -28,7 +28,7 @@ def main():
 
     palette_filename = sys.argv[1]
 
-    starship_toml_path = f"/home/{get_username()}/.config/starship.toml"
+    starship_toml_path = "/home/" + get_username() + "/.config/starship.toml"
 
     # read from starship.toml
     with open(starship_toml_path, 'r') as toml:

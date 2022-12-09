@@ -1,7 +1,7 @@
 import os
 from functions import get_username
 
-bashrc_path = f"/home/{get_username()}/.bashrc"
+bashrc_path = "/home/" + get_username() + "/.bashrc"
 
 with open(bashrc_path, 'r') as bashrc:
     contents = bashrc.read()
