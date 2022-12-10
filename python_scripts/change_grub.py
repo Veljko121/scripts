@@ -1,5 +1,6 @@
 import os
 
+
 with open('/etc/default/grub', 'r') as grub:
     grub_contents = grub.readlines()
 

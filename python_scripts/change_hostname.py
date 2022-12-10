@@ -1,5 +1,6 @@
 import os
 
+
 new_hostname = input("Enter your new hostname (name of your PC): ")
 
 with open('/etc/hostname', 'r') as hostname:
