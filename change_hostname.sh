@@ -1,4 +1,14 @@
 #!/bin/bash
 # This script changes the hostname.
 
-python3 python_scripts/change_hostname.py
+# Prompt user for new hostname
+read -p "Enter new hostname: " hostname
+
+# Set the new hostname
+sudo hostnamectl set-hostname $hostname
+
+# Update the /etc/hosts file
+sed -i "s/127.0.1.1.*/127.0.1.1 $hostname/g" /etc/hosts
+
+# Print the new hostname
+echo "The new hostname is: $hostname"
