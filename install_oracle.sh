@@ -23,8 +23,8 @@ sudo rpm -i oracle-xe-11.2.0-1.0.x86_64.rpm
 service oracle-xe start
 
 # Set the ORACLE_HOME and PATH environment variables
-echo 'export ORACLE_HOME="/u01/app/oracle/product/11.2.0/xe"' >> /home/oracle/.bashrc
-echo 'export PATH=$ORACLE_HOME/bin:$PATH' >> /home/oracle/.bashrc
+sudo echo 'export ORACLE_HOME="/u01/app/oracle/product/11.2.0/xe"' >> /home/oracle/.bashrc
+sudo echo 'export PATH=$ORACLE_HOME/bin:$PATH' >> /home/oracle/.bashrc
 source /home/oracle/.bashrc
 
 # Set the password for the SYS and SYSTEM users
