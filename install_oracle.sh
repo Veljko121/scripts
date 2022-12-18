@@ -2,6 +2,7 @@
 
 sudo apt update
 sudo apt install unzip -y
+sudo apt install rpm -y
 
 # Create a new user for the Oracle database
 sudo useradd -m -d /home/oracle -s /bin/bash oracle
